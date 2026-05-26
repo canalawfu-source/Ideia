@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaceCraft // Running Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo">PaceCraft<span>// Training Blueprint</span></div>
+        <div class="stats-bar">
+            <div class="stat-item">Total Planned: <span id="total-distance">0</span> km</div>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Schedule a Run</h2>
+            <form id="workout-form">
+                <div class="form-group">
+                    <label for="workout-date">Date</label>
+                    <input type="date" id="workout-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workout-type">Training Type</label>
+                    <select id="workout-type" required>
+                        <option value="easy">Easy Run</option>
+                        <option value="interval">Interval / Speed</option>
+                        <option value="fartlek">Fartlek</option>
+                        <option value="long">Long Run</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="workout-distance">Distance (km)</label>
+                        <input type="number" id="workout-distance" step="0.1" min="0" placeholder="e.g. 10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="workout-pace">Target Pace</label>
+                        <input type="text" id="workout-pace" placeholder="e.g. 4:40" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Add to Blueprint</button>
+            </form>
+            
+            <div class="instructions">
+                <p>💡 <em>Tip: Click any day on the calendar to instantly select that date.</em></p>
+            </div>
+        </aside>
+
+        <main class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month" class="btn-nav">&lt;</button>
+                <h2 id="month-year-display">May 2026</h2>
+                <button id="next-month" class="btn-nav">&gt;</button>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="day-name">Sun</div>
+                <div class="day-name">Mon</div>
+                <div class="day-name">Tue</div>
+                <div class="day-name">Wed</div>
+                <div class="day-name">Thu</div>
+                <div class="day-name">Fri</div>
+                <div class="day-name">Sat</div>
+                
+                <div id="calendar-days" class="days-body"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
